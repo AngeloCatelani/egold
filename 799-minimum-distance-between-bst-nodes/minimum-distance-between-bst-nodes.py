@@ -6,18 +6,18 @@
 #         self.right = right
 class Solution:
     def minDiffInBST(self, root: Optional[TreeNode]) -> int:
-        curr_smallest, prev = float("inf"), None
-        
-        def inorder(node):
-            nonlocal curr_smallest, prev
-            if node is None:
+        small , prev = float("inf") , None
+        if not root:
+            return
+        def inorder(root):
+            nonlocal small,prev
+            if not root:
                 return
-            
-            inorder(node.left)
+            inorder(root.left)
             if prev is not None:
-                curr_smallest = min(curr_smallest, node.val-prev.val)
-            prev = node
-            inorder(node.right)
-
+                small = min(small,root.val - prev.val)
+            prev = root
+            inorder(root.right)
+        
         inorder(root)
-        return curr_smallest
+        return small
