@@ -20,7 +20,8 @@ public class Solution {
         for (int i = 1; i < intervals.length; i++) {
             int[] next = intervals[i];
             if (current[1] >= next[0]) {
-                current[1] = Math.max(current[1], next[1]);
+                 current[0] = Math.min(current[0], next[0]);
+            current[1] = Math.max(current[1], next[1]);
             } else {
                 current = next;
                 output.add(current);
