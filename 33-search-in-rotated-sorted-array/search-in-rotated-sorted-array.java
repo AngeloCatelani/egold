@@ -4,7 +4,7 @@ class Solution {
         int r = nums.length -1;
 
         while(l<=r){
-            int m  = (l+r)/2;
+            int m = (l+r)/2;
             if(nums[m] == target)return m;
             if(nums[l] <= nums[m]){
                 if(target > nums[m] || target < nums[l]){
@@ -13,16 +13,17 @@ class Solution {
                 else{
                     r = m-1;
                 }
+
             }
             else{
                 if(target < nums[m] || target > nums[r]){
                     r = m-1;
                 }
-                else{
+                 else{
                     l = m+1;
                 }
-            }
 
+            }
         }
         return -1;
     }
