@@ -13,6 +13,7 @@
  *     }
  * }
  */
+//  Time: O(n) Space: O(h)
 class Solution {
     public boolean evaluateTree(TreeNode root) {
         if(root.val==0) return false;
