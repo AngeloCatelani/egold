@@ -1,37 +1,29 @@
 class Solution {
     public int maximumRemovals(String s, String p, int[] removable) {
-        int left = 0; // Minimum number of removable characters
-        int right = removable.length; // Maximum number of removable characters
-        
+        int left = 0, right = removable.length;
         while (left < right) {
-            int mid = left + (right - left + 1) / 2;
-            if (canRemove(s, p, removable, mid)) {
+            int mid = (left + right + 1) >> 1;
+            if (check(s, p, removable, mid)) {
                 left = mid;
             } else {
                 right = mid - 1;
             }
         }
-        
         return left;
     }
-    
-    private boolean canRemove(String s, String p, int[] removable, int k) {
-        boolean[] removed = new boolean[s.length()];
-        
-        for (int i = 0; i < k; i++) {
-            removed[removable[i]] = true;
+
+    private boolean check(String s, String p, int[] removable, int mid) {
+        int m = s.length(), n = p.length(), i = 0, j = 0;
+        Set<Integer> ids = new HashSet<>();
+        for (int k = 0; k < mid; ++k) {
+            ids.add(removable[k]);
         }
-        
-        int pIdx = 0; // Pointer for string p
-        for (int i = 0; i < s.length(); i++) {
-            if (!removed[i] && s.charAt(i) == p.charAt(pIdx)) {
-                pIdx++;
-                if (pIdx == p.length()) {
-                    return true; // Found subsequence p
-                }
+        while (i < m && j < n) {
+            if (!ids.contains(i) && s.charAt(i) == p.charAt(j)) {
+                j++;
             }
+            i++;
         }
-        
-        return false; // p cannot be formed
+        return j == n;
     }
 }
