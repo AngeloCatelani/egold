@@ -11,8 +11,12 @@ class Solution:
         while tail.next:
             tail = tail.next
             length+=1
-        k = k%length
-        if k== 0:
+          # Compute the effective number of rotations needed, 
+        # as rotating a list by its length results in the same list
+        k = k % length
+        
+        # If no rotation is needed, return the head as it is
+        if k == 0:
             return head
         curr = head
         for i in range(length -k -1):
