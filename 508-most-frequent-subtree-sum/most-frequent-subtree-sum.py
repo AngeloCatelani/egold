@@ -6,20 +6,18 @@
 #         self.right = right
 class Solution:
     def findFrequentTreeSum(self, root: Optional[TreeNode]) -> List[int]:
+        count = Counter()
         if not root:
             return []
-        
-        def dfs(node):
-            if not node:
+        def dfs(root):
+            if not root:
                 return 0
-            left_sum = dfs(node.left)
-            right_sum = dfs(node.right)
-            subtree_sum = node.val + left_sum + right_sum
-            count[subtree_sum] += 1
-            return subtree_sum
-        
-        count = Counter()
+            left =dfs(root.left)
+            right = dfs(root.right)
+            sumL = left + right+ root.val
+            count[sumL]+=1
+            return sumL
+
         dfs(root)
-        
-        max_freq = max(count.values())
-        return [s for s in count if count[s] == max_freq]
+        maxL = max(count.values())
+        return [ s for s in count if count[s] == maxL]
