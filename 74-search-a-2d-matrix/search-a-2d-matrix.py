@@ -3,10 +3,9 @@ class Solution:
         def bs(nums):
             l = 0
             r = len(nums)-1
-            while l <= r:
+            while l <=r:
                 m = (l+r)//2
                 if nums[m] == target:
-                    print(nums[m])
                     return True
                 if nums[m] < target:
                     l = m+1
@@ -18,7 +17,3 @@ class Solution:
             if bs(e):
                 return True
         return False
-
-
-
-        
