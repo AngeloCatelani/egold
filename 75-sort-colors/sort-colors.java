@@ -22,6 +22,9 @@ class Solution {
       for(int i =0 ; i< count0;i++){
           nums[i] = 0;
       }
+    //   System.out.println(count0);
+    //   System.out.println(count1);
+    //   System.out.println(count2);
       for(int i =count0 ; i< count0+count1;i++){
           nums[i] = 1;
       }
