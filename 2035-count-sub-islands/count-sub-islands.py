@@ -1,33 +1,32 @@
 class Solution:
     def countSubIslands(self, grid1: List[List[int]], grid2: List[List[int]]) -> int:
-        ROWS, COLS = len(grid1), len(grid1[0])
-        visit = set()
+        rows = len(grid1)
+        cols = len(grid1[0])
 
-        def dfs(r, c):
-            if (
-                r < 0
-                or c < 0
-                or r == ROWS
-                or c == COLS
-                or grid2[r][c] == 0
-                or (r, c) in visit
-            ):
+        v= set()
+        count = 0
+
+        def dfs(i,j):
+            if i<0 or i>= rows or j<0 or j>= cols or (i,j) in v or grid2[i][j]== 0:
                 return True
-
-            visit.add((r, c))
             res = True
-            if grid1[r][c] == 0:
+            v.add((i,j))
+            if grid1[i][j]== 0:
                 res = False
+            res = dfs(i+1,j) and res
+            res = dfs(i-1,j)and res
+            res = dfs(i,j+1) and res
+            res = dfs(i,j-1) and res
 
-            res = dfs(r - 1, c) and res
-            res = dfs(r + 1, c) and res
-            res = dfs(r, c - 1) and res
-            res = dfs(r, c + 1) and res
             return res
 
-        count = 0
-        for r in range(ROWS):
-            for c in range(COLS):
-                if grid2[r][c] and (r, c) not in visit and dfs(r, c):
-                    count += 1
+
+
+
+
+        for i in range(rows):
+            for j in range (cols):
+                if grid2[i][j] and (i,j) not in v:
+                    if dfs(i,j):
+                        count+=1
         return count
