@@ -18,3 +18,6 @@ class Solution {
 
     }
 }
+// Input: word1 = "cabbba", word2 = "abbccc"
+// count1: [1, 2, 2, 0, 0, ..., 0] (representing frequencies of 'a', 'b', 'c', and other characters).
+// count2: [1, 2, 3, 0, 0, ..., 0] (representing frequencies of 'a', 'b', 'c', and other characters).
