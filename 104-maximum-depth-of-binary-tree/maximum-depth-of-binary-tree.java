@@ -15,23 +15,23 @@
  */
 class Solution {
     public int maxDepth(TreeNode root) {
-        //bfs
-        Queue<TreeNode> q = new LinkedList<>();
+        Queue<TreeNode>q = new LinkedList<>();
         List<List<Integer>> outerArr = new ArrayList<>();
         if(root == null)return 0;
         q.offer(root);
         while(!q.isEmpty()){
+            List<Integer>innerArr = new ArrayList<>();
             int size = q.size();
-            List<Integer> innerArr = new ArrayList<>();
-            for(int i=0; i<size; i++){
-                TreeNode node = q.poll();
-                innerArr.add(node.val);
-                if(node.left != null){
-                    q.offer(node.left);
+            for(int i=0;i< size;i++){
+                TreeNode n= q.poll();
+                innerArr.add(n.val);
+                if(n.left != null){
+                    q.offer(n.left);
                 }
-                if(node.right != null){
-                    q.offer(node.right);
+                if(n.right != null){
+                    q.offer(n.right);
                 }
+  
             }
             outerArr.add(innerArr);
         }
