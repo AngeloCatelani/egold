@@ -10,10 +10,11 @@ class Solution {
             counts1[c1 - 'a']++;
             counts2[c2 - 'a']++;
         }
-        for (int i = 0; i < 26; i++) {
-            if (counts1[i] == 0 ^ counts2[i] == 0)
-                return false;
-        }
+      for (int i = 0; i < 26; i++) {
+    if ((counts1[i] == 0 && counts2[i] != 0) || (counts1[i] != 0 && counts2[i] == 0))
+        return false;
+}
+
         Arrays.sort(counts1);
         Arrays.sort(counts2);
         return Arrays.equals(counts1, counts2);
