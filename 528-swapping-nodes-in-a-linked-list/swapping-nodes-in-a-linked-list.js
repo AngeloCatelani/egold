@@ -11,20 +11,20 @@
  * @return {ListNode}
  */
 var swapNodes = function(head, k) {
-   let left = null, right = null, cur = head;
-
-        while (cur) {
-            if (right) {
-                right = right.next;
-            }
-            if (k === 1) {
-                left = cur;
-                right = head;
-            }
-            k--;
-            cur = cur.next;
+    let l = null;
+    let r = null;
+    let curr = head;
+    while(curr){
+        if(r){
+            r = r.next;
         }
-
-        [left.val, right.val] = [right.val, left.val];
-        return head;
-    } 
+        if(k === 1){
+            l = curr
+            r = head
+        }
+        k--;
+        curr = curr.next;
+    }
+    [l.val,r.val] = [r.val,l.val];
+    return head
+};
