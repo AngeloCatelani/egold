@@ -9,27 +9,17 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) {
-            return null; // Base case: If the root is null, return null.
-        }
-
-        // Check if the current root is one of the target nodes (p or q)
-        if (root == p || root == q) {
-            return root; // Return the current root if it's p or q.
-        }
-
-        // Recursively search in the left and right subtrees
-        TreeNode leftLCA = lowestCommonAncestor(root.left, p, q);
-        TreeNode rightLCA = lowestCommonAncestor(root.right, p, q);
-
-        // If both leftLCA and rightLCA are not null, it means p and q are found in
-        // separate subtrees, so the current root is their lowest common ancestor.
-        if (leftLCA != null && rightLCA != null) {
+        if(root == null || root == p || root == q){
             return root;
         }
+        TreeNode left = lowestCommonAncestor( root.left,  p,  q);
+        TreeNode right = lowestCommonAncestor( root.right,  p,  q);
+        if(left!= null && right!= null){
+            return root;
+        }
+        //anyone null they are descendant
+       return left !=null ? left:right;
 
-        // If only one of leftLCA or rightLCA is not null, return the non-null one
-        // (the lowest common ancestor is found in one of the subtrees).
-        return (leftLCA != null) ? leftLCA : rightLCA;
+
     }
 }
