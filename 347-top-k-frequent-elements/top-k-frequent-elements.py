@@ -11,8 +11,9 @@ class Solution:
             freq[values].append(key)
 
         for i in range(len(freq)-1,0,-1):
+            # print(freq) [[], [3], [2], [1], [], [], []]
             for n in freq[i]:
-                print(n)
+                # print(n)
                 res.append(n)
                 if len(res) == k:
                     return res
