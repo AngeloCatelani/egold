@@ -13,7 +13,9 @@ class Solution {
                     count++;
                 }
             }
-            
+            System.out.println(mid);
+              System.out.print("---");
+              System.out.println(count);
             if (count > mid) {
                 high = mid;
             } else {
@@ -24,3 +26,5 @@ class Solution {
         return low;
     }
 }
+// time-O(n log n)
+//space O(1)
