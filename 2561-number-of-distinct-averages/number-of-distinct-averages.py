@@ -24,5 +24,6 @@ class Solution(object):
         # Recursive call with the updated list and set
         return self.distinctAverages(nums, s)
 
-     
+    #  time =O(n)^2
+    # space O(n)
 
