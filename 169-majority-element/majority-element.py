@@ -1,16 +1,16 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        
-        hashmap = {}
+        map ={}
         for n in nums:
-            hashmap[n] = 1+ hashmap.get(n,0)
-
+            map[n] = 1+ map.get(n,0)
+        
         maxV = 0
         res = 0
-        for n in hashmap:
-            if hashmap[n] > maxV:
+
+        for n in map:
+            if map[n] > maxV:
                 res = n
             else:
                 res
-            maxV = max(maxV,hashmap[n])
+            maxV = max(maxV,map[n])
         return res
