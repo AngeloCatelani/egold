@@ -6,9 +6,10 @@ class Solution:
         for i in s:
             if i in hashset:
                 res +=1
-                hashset =set()
+                hashset = set()
                 hashset.add(i)
             
+
             else:
                 hashset.add(i)
         return res
