@@ -11,6 +11,7 @@ public class Solution {
         dp[0] = 0;
         dp[1] = nums[0];
 
+// We have to add nums[i - 1] to dp[i - 2] because we are considering the case where we rob the current house. If we rob the current house, we cannot rob the previous house, so we have to take the maximum amount of money that can be robbed up to the previous house two doors down, which is dp[i - 2], and add to the money robbed from the current house, which is nums[i - 1].
         for (int i = 2; i <= n; i++) {
             dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1]);
         }
