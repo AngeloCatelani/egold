@@ -5,25 +5,25 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        if s is None:
-            s = set()  # Initialize a set to store unique averages
+        nums.sort()  # O(n log n)
+        left, right = 0, len(nums) - 1
+        avg_set = set()
         
-        if not nums:  # Base case: stop when the list is empty
-            return len(s)
+        while left < right:  # O(n)
+            avg = (nums[left] + nums[right]) / 2.0
+            avg_set.add(avg)
+            left += 1
+            right -= 1
         
-        # Find and remove min/max correctly
-        minNum = min(nums)
-        maxNum = max(nums)
-        nums.remove(minNum)
-        nums.remove(maxNum)
-        
-        # Compute the average and store it in the set
-        avg = (minNum + maxNum) / 2.0  # Keep as float to maintain precision
-        s.add(avg)
+        return len(avg_set)  # Number of unique averages
 
-        # Recursive call with the updated list and set
-        return self.distinctAverages(nums, s)
+# Time Complexity Analysis
+# Sorting (O(n log n))
+# Two-Pointer Iteration (O(n))
+# Adding to Set (O(1) per operation, total O(n))
+# Final time complexity: O(n log n) + O(n) = O(n log n).
 
-    #  time =O(n)^2
-    # space O(n)
-
+# Space Complexity Analysis
+# Set stores at most n/2 unique values (O(n)), but since we don’t use extra data structures beyond a few variables, it's O(n) in the worst case.
+# However, if we consider only extra space apart from input, it's O(1).
+# Final space complexity: O(n) worst case, but O(1) auxiliary space.
