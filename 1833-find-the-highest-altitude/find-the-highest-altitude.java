@@ -1,15 +1,14 @@
 class Solution {
     public int largestAltitude(int[] gain) {
-        int highest = 0;
         int path = 0;
-
-        for (int i = 0; i < gain.length; i++) {
+        int hightest = 0;
+        for(int i =0; i< gain.length; i++){
             path += gain[i];
-
-            if (path > highest) {
-                highest = path;
+            if(path > hightest){
+                hightest = path;
             }
         }
-        return highest; 
+
+        return hightest;
     }
 }
