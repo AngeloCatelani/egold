@@ -79,7 +79,7 @@ class Solution {
         
         // Add the new cloned node to the map.
         map.put(node.val, newNode);
-        
+        // System.out.print(map);
         // Recursively clone the neighbors of the original node.
         for (Node neighbor : node.neighbors) {
             // Add the cloned neighbor to the neighbors list of the new node.
@@ -90,3 +90,9 @@ class Solution {
         return newNode;
     }
 }
+//hashmap
+//old     new
+// 1 ->   1
+// 2 ->   2
+// 4 -> 4
+//3 -> 3
