@@ -21,13 +21,13 @@ class Solution {
 
         return new String(c);
     }
-
-    public boolean isVowel(char c){
-        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'
-                || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+    private boolean isVowel(char c){
+        if (c == 'a'|| c =='e' || c == 'i'|| c =='o' ||c == 'u'|| c =='A' ||c == 'E'|| c =='I' ||c == 'O'|| c =='U' ){
+       return true;
+        }
+        return false;
     }
-
-    public void swap(char[] c, int i, int j){
+   public void swap(char[] c, int i, int j){
         char temp = c[i];
         c[i] = c[j];
         c[j] = temp;
