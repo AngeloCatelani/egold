@@ -94,6 +94,8 @@ class Solution {
         }
         for(int i=low; i<= high; i++){
             arr[i] = temp.get(i-low);
+            // System.out.println(Arrays.toString(arr));
+            //  System.out.println(temp.get(i-low));
         }
     }
 }
