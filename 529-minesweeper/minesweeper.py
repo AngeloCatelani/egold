@@ -4,21 +4,24 @@ class Solution:
         def reveal(i: int, j: int):
             # Count mines around the current cell
             mine_count = 0
-            for x in range(max(i - 1, 0), min(i + 2, rows)):  # Limits the range on the board
-                for y in range(max(j - 1, 0), min(j + 2, columns)):  # Limits the range on the board
-                    if board[x][y] == "M":
-                        mine_count += 1
-          
+            for x in range(i - 1, i + 2):
+                for y in range(j - 1, j + 2):
+                    if 0 <= x < rows and 0 <= y < columns:  # Explicit boundary checks
+                        if board[x][y] == "M":
+                            mine_count += 1
+
             # If there are mines around the cell, update with mine count
             if mine_count > 0:
                 board[i][j] = str(mine_count)
             else:
                 # Otherwise, set the cell to "B" for blank and reveal surrounding cells
                 board[i][j] = "B"
-                for x in range(max(i - 1, 0), min(i + 2, rows)):
-                    for y in range(max(j - 1, 0), min(j + 2, columns)):
-                        if board[x][y] == "E":
-                            reveal(x, y)
+                for x in range(i - 1, i + 2):
+                    for y in range(j - 1, j + 2):
+                        if 0 <= x < rows and 0 <= y < columns:  # Explicit boundary checks
+                            if board[x][y] == "E":
+                                reveal(x, y)
+
 
         # Get the size of the board
         rows, columns = len(board), len(board[0])
