@@ -8,8 +8,8 @@ class Solution:
         curr =head
         while curr and curr.next:
             if curr.val == curr.next.val:
-                tmp = curr.next.next
-                curr.next = tmp
+                # tmp = curr.next.next
+                curr.next = curr.next.next
             else:
                 curr = curr.next
         return head
