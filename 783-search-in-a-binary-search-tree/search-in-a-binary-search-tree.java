@@ -15,27 +15,16 @@
  */
 class Solution {
     public TreeNode searchBST(TreeNode root, int val) {
-        if(root == null)return null;
-        if(root.val == val)return root;
-        else if(val < root.val){
-           return searchBST(root.left, val);
-        }
-        else {
-           return searchBST(root.right, val);
-        }
+      if(root == null)return null;
+            if(root.val == val)return root;
+          else if(val < root.val){
+             return   searchBST(root.left, val);
+          
+           }
+           else{
+             return     searchBST(root.right, val);
+           }
+            
+   
     }
 }
-
-// class Solution {
-//     public TreeNode searchBST(TreeNode root, int val) {
-//         if (root == null) return null;
-
-//         if (root.val == val) {
-//             return root; // Found the node with the desired value
-//         } else if (val < root.val) {
-//             return searchBST(root.left, val); // Search in the left subtree
-//         } else {
-//             return searchBST(root.right, val); // Search in the right subtree
-//         }
-//     }
-// }
