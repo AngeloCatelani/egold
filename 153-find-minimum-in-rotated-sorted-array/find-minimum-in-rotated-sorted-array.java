@@ -14,6 +14,7 @@ class Solution {
                 r = m;
             }
         }
-        return 0; //Return 0 when the array is empty or no minimum is found.
+        return 0;
+
     }
 }
