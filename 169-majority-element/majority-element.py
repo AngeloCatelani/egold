@@ -1,16 +1,24 @@
-class Solution:
-    def majorityElement(self, nums: List[int]) -> int:
-        map ={}
-        for n in nums:
-            map[n] = 1+ map.get(n,0)
-        
-        maxV = 0
-        res = 0
+class Solution(object):
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        map = {}
 
-        for n in map:
-            if map[n] > maxV:
-                res = n
+        for i in range(len(nums)):
+            if nums[i] in map:
+                map[nums[i]] +=1
             else:
-                res
-            maxV = max(maxV,map[n])
-        return res
+                map[nums[i]] = 1
+        count = 0
+        k = 0
+        for key,val in map.items():
+            
+            if val > count:
+                count = val
+                k = key
+            else:
+                continue
+        return k
+            
