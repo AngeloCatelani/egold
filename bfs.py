@@ -1,3 +1,6 @@
+
+# BFS is iterative to find shortest route. Go by level by level
+
 graph = {
   '5' : ['3','7'],
   '3' : ['2', '4'],
