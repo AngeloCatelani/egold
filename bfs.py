@@ -1,5 +1,6 @@
 
 # BFS is iterative to find shortest route. Go by level by level
+# Uses Queue-FIFO or LILO
 
 graph = {
   '5' : ['3','7'],
