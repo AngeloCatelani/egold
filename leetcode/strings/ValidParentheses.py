@@ -20,3 +20,5 @@ class Solution:
         # space - O(n)
     print(isValid("(]"))
             
+
+          

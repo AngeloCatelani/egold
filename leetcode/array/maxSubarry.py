@@ -7,6 +7,7 @@ def maxSubArray( nums) -> int:
             currSum+=n
             maxSub = max(maxSub,currSum)
         return maxSub
-print(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
-print(maxSubArray([-2,-1,-3,-4,-1,-2,-1,-5,-4]))
-print(maxSubArray([-2,-1,-3,-4,-1,-2,-1,-5,4]))
+# print(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+# print(maxSubArray([-2,-1,-3,-4,-1,-2,-1,-5,-4]))
+# print(maxSubArray([-2,-1,-3,-4,-1,-2,-1,-5,4]))
+
