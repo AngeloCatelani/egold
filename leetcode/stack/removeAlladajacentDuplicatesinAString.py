@@ -12,5 +12,6 @@ def removeDuplicates( s: str, k: int) -> str:
             res += (char * count) 
         return res
 print(removeDuplicates("abcd",2))
+print(removeDuplicates("pbbcggttciiippooaais",2))
 # time -O(n)
 # space - O(n)

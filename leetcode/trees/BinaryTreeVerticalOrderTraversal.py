@@ -84,6 +84,48 @@ def verticalOrder(self, root: TreeNode):
 
         # time O(n)
         # space O(n)
+# obj={
+# 0:[4,3]
+# -1:[2]
+# 1:[7]
+# }
+
+
+
+
+
+
+
+
+
+
+def verticalOrder(root):
+    output =[]
+    minX = float("inf")
+    maxX = float("-inf")
+    queue = collections.deque([0,root])
+    obj = collections.defaultdict(list)
+
+    if not root:
+        return []
+    
+    while queue:
+        x, node = queue.popleft()
+        obj[x].append(node.val)
+        minX = min(x,minX)
+        maxX = max(x,maxX)
+
+        if node.left:
+            queue.append([x-1,node.left])
+        if node.right:
+            queue.append([x+1,node.right])
+        
+        for level in range(minX,maxX+1):
+            output.append(obj[level])
+        return output
+        
+
+
 
 
 
