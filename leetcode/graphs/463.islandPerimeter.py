@@ -1,4 +1,4 @@
-def islandPerimeter(self, grid: List[List[int]]) -> int:
+def islandPerimeter(grid) :
         # use set to have visited cells
         # have a helper func dfs to go depth depth
         # conditions to check i>=len(grid) or j>=len(grid[0]) or i<0 or j<0
@@ -26,3 +26,5 @@ def islandPerimeter(self, grid: List[List[int]]) -> int:
                     return dfs(i,j)
     # time = O(n*m)
     # space = O(n*m)
+    
+        
