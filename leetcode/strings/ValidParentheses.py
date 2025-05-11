@@ -1,5 +1,5 @@
-class Solution:
-    def isValid( s: str) -> bool:
+
+def isValid( s: str) -> bool:
         # using stack DS because we are popping out from first
         # hashmap act like objects or dict to store key value pairs where keys are closing brackets
         # output-> boolean
@@ -12,13 +12,13 @@ class Solution:
                     # stack and stack's last element is equal to closingbracket's key
                     stack.pop() # then pop it out
                 else:
-                    return False
+                    return False  # if stac is empty return False
             else:
                 stack.append(c)
         return True if not stack else False # return True if stack is empty or False
         # time complexity - O(n)
         # space - O(n)
-    print(isValid("(]"))
+print(isValid("]"))
             
 
           
