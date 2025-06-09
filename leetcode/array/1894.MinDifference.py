@@ -7,3 +7,4 @@ def minimumDifference( nums, k) :
                 print(visited)
         return min(visited,default=0)
 print(minimumDifference([9,4,1,7],2))
+print(minimumDifference([9,4,1,7],2))
