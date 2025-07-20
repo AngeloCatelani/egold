@@ -30,5 +30,6 @@ def findMin( nums) :
         # return res
 print(findMin([3,4,5,1,2]))
 print(findMin([4,5,6,7,0,1,2]))
+# gsdgfdgd
             
 
