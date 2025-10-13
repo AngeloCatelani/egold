@@ -1,54 +1,22 @@
 class Solution {
-   public List<String> generateParenthesis(int n) {
-        // Resultant list
-        List<String> result = new ArrayList<>();
-        /// Recursively generate parentheses
-        generateParenthesis(result, "", 0, 0, n);
-        return result;
+    // if open == close == n
+    //if open < n increment open by 1
+    //if close < open increment close by 1
+    public List<String> generateParenthesis(int n) {
+        List<String> res = new ArrayList<>();
+        generateParenthesis(n,res,0,0,"");
+        return res;
     }
-
-    private void generateParenthesis(List<String> result, String s, int open, int close, int n) {
-        // Base case
-        if (open == n && close == n) {
-            result.add(s);
-//             System.out.println(result);
-//             [((()))]
-// [((())), (()())]
-// [((())), (()()), (())()]
-// [((())), (()()), (())(), ()(())]
-// [((())), (()()), (())(), ()(()), ()()()]
-            return;
-        }
-        // If the number of open parentheses is less than the given n
-        if (open < n) {
-            generateParenthesis(result, s + "(", open + 1, close, n);
-            // System.out.println(result);
-//             [((()))]
-// [((())), (()())]
-// [((())), (()()), (())()]
-// [((())), (()()), (())()]
-// [((())), (()()), (())(), ()(())]
-// [((())), (()()), (())(), ()(()), ()()()]
-// [((())), (()()), (())(), ()(()), ()()()]
-// [((())), (()()), (())(), ()(()), ()()()]
-        }
-        // If we need more close parentheses to balance
-        if (close < open) {
-            generateParenthesis(result, s + ")", open, close + 1, n);
-//                   System.out.println(result);
-//                   [((()))]
-// [((()))]
-// [((()))]
-// [((())), (()())]
-// [((())), (()())]
-// [((())), (()()), (())()]
-// [((())), (()()), (())()]
-// [((())), (()()), (())()]
-// [((())), (()()), (())(), ()(())]
-// [((())), (()()), (())(), ()(())]
-// [((())), (()()), (())(), ()(()), ()()()]
-// [((())), (()()), (())(), ()(()), ()()()]
-// [((())), (()()), (())(), ()(()), ()()()]
-        }
+    private void generateParenthesis(int n, List<String> res,int open,int close,String s){
+       if(open == n && close == n){
+           res.add(s);
+           return;
+       }
+       if(open < n){
+           generateParenthesis( n, res, open+1, close, s+'(');
+       }
+        if(close < open){
+           generateParenthesis( n, res, open, close+1, s+')');
+       }
     }
 }
