@@ -20,13 +20,17 @@ class Solution {
             // Add current character to the window
             count[s2.charAt(i) - 'a']--;
             
-            // Remove leftmost character if window size exceeds s1 length
-            if (i >= len1)
-                count[s2.charAt(i - len1) - 'a']++;
             
-            // Check if current window is an anagram of s1
-            if (i >= len1 - 1 && allZero(count))
-                return true;
+                // Remove leftmost character if window size exceeds s1 length
+        if (i >= len1) {
+            char leftmostChar = s2.charAt(i - len1);
+            count[leftmostChar - 'a']++; // Increment the count of the leftmost character
+        }
+
+        // Check if current window is an anagram of s1
+        if (i >= len1 - 1 && allZero(count)) {
+            return true; // If the window is an anagram of s1, return true
+        }
         }
         
         return false;
