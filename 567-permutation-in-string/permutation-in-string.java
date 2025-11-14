@@ -1,45 +1,33 @@
-import java.util.Arrays;
-import java.util.HashSet;
-
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        int len1 = s1.length();
-        int len2 = s2.length();
-        
-        if (len1 > len2)
-            return false;
-        
-        int[] count = new int[26];
-        
-        // Count frequencies of characters in s1
-        for (char c : s1.toCharArray())
-            count[c - 'a']++;
-        
-        // Use sliding window technique
-        for (int i = 0; i < len2; i++) {
-            // Add current character to the window
+        //using sliding window
+        //if not a match increment the r and decrement the left most character
+        //using count of length 26 and comparing if count is all zero then true else false
+        int [] count = new int [26];
+        int length1 = s1.length();
+        int length2 = s2.length();
+        if(length1 > length2)return false;
+        for(int i=0; i< length1; i++){
+            count[s1.charAt(i) - 'a']++;
+        }
+        for(int i = 0; i< length2; i++){
             count[s2.charAt(i) - 'a']--;
-            
-            
-                // Remove leftmost character if window size exceeds s1 length
-        if (i >= len1) {
-            char leftmostChar = s2.charAt(i - len1);
-            count[leftmostChar - 'a']++; // Increment the count of the leftmost character
-        }
+            if(i >= length1){ //not a match
+                int left = s2.charAt(i - length1);
+                  count[left - 'a']++;
+            }
+            //if matched
+            if(i>= length1-1 && allZero(count)){
+                return true;
+            }
 
-        // Check if current window is an anagram of s1
-        if (i >= len1 - 1 && allZero(count)) {
-            return true; // If the window is an anagram of s1, return true
         }
-        }
-        
         return false;
+
     }
-    
-    private boolean allZero(int[] count) {
-        for (int i = 0; i < count.length; i++) {
-            if (count[i] != 0)
-                return false;
+    private boolean allZero(  int [] count){
+        for(int i = 0; i< count.length; i++){
+            if(count[i] != 0)return false;
         }
         return true;
     }
